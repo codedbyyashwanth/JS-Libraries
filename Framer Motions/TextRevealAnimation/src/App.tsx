@@ -1,5 +1,5 @@
 import { FC } from "react";
-import HeroComponent, { Props } from "./components/HeroComponent";
+import HeroComponent, { Props } from "./GSAP Text/HeroComponent";
 
 
 const App:FC = () => {
@@ -24,7 +24,7 @@ const App:FC = () => {
             }
       ]
       return (
-            <div className="">
+            <div className="section">
                   {
                         data.map((card, index) => (
                               <HeroComponent heading={card.heading} body={card.body} bgColor={card.bgColor} color={card.color} key={index} />

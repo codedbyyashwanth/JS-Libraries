@@ -23,22 +23,22 @@ const Reveal:FC<Props> = ({children}) => {
                         opacity: 1,
 
                         transition: {
-                                ease: [1,0,0,1],
-                                duration: 0.8
+                                ease: [1,0,1,1],
+                                duration: 0.6,
                         }
                 }
         }
 
         const labelVariant = {
                 hidden : {
-                        left: 0
+                        left: 0,
                 },
                 visible: {
                         left: "100%",
 
                         transition: {
-                                ease: [1,0,0,1],
-                                duration: 0.6
+                                ease: [1,0,1,1],
+                                duration: 0.4,
                         }
                 }
         }
