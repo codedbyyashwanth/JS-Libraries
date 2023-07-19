@@ -9,9 +9,14 @@ const IntroText:FC = () => {
         useEffect(() => {
                 gsap.context(() => {
                         gsap.to(".char", {
-                                keyframes: {
-                                        y: ["0","-100%", "-200%", "0%"],
-                                },
+                                keyframes: [
+                                        {y: 0, delay: 0.5},
+                                        {y: "-100%", delay: 2},
+                                        {y: "-200%", delay: 2},
+                                        {y: 0, delay: 2},
+                                ],
+                                ease: "linear",
+                                repeat: Infinity
                         })
                 }, app);
         });
@@ -20,7 +25,7 @@ const IntroText:FC = () => {
                 <>
                         <Navbar />
                         <header className="flex justify-center items-center w-full h-screen text-white" ref={app}>
-                                <h1 className="text-6xl">
+                                <h1 className="text-6xl font-bold  ">
                                         Hello, I am <p style={{clipPath: "polygon(0 0, 100% 0, 100% 33%, 0% 33%)"}}>
                                         <span className="char text-orange-500 block py-4">Software Developer</span>
                                         <span className="char text-orange-500 block py-4">App Developer</span>

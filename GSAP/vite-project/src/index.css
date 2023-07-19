@@ -6,6 +6,42 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+body {
+      overflow-x: hidden;
+}
+
+.cover {
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+}
+
+.bgCircle {
+      width: 600px;
+      height: 600px;
+      z-index: -1;
+      border-radius: 50%;
+      background: #7F7FD5;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      animation: rotate 20s infinite;
+      translate: -50% -50%;
+      filter: blur(100px);
+}
+
+@keyframes rotate {
+      0% {
+            rotate: 0deg;
+      }
+
+      50% {
+            scale: 1 1.5;
+      }
+
+      100% {
+            rotate: 360deg;
+      }
+}
 
 @tailwind base;
 @tailwind components;
