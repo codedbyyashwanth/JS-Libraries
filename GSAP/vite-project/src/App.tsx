@@ -3,6 +3,7 @@ import {Routes, Route} from "react-router-dom"
 import Home from "./pages/Home";
 import IntroText from "./pages/IntroText";
 import BgCircle from "./pages/BgCircle";
+import Split from "./pages/Split";
 
 const App:FC = () => {
       return (
@@ -11,6 +12,7 @@ const App:FC = () => {
                   <Route path="/home" index element={<Home />} />
                   <Route path="/intro" index element={<IntroText />} />
                   <Route path="/bgcircle" index element={<BgCircle />} />
+                  <Route path="/splittxt" element={<Split />} />
            </Routes>
       );
 }

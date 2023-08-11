@@ -8,6 +8,7 @@ const Navbar:FC = () => {
                         <Link className=" underline" to="/home">Home</Link>
                         <Link className=" underline" to="/intro">Intro Page</Link>
                         <Link className=" underline" to="/bgcircle">BG Anime</Link>
+                        <Link className=" underline" to="/splittxt">Split Div</Link>
                 </nav>
         );
 }
