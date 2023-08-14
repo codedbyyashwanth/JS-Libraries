@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, {useEffect} from "react";
+import { useTodoDispatch, useTodoSelector } from "./utils/hooks";
+import { showTodos } from "./utils/slice/todo";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+      const TodoDispatch = useTodoDispatch();
+      const TodoSelector = useTodoSelector((state) =>  state.todo);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      useEffect(() => {
+            TodoDispatch(showTodos());
+      }, []);
+
+      if (TodoSelector.isLoading)
+            return <h1>Loading</h1>
+
+      return (
+            <>
+                  <div style={{ width: "100%", maxWidth: "1000px", margin: "0 auto", textAlign: "center"}}>
+                        <h2>Todo List</h2>
+                        <div>
+                              {
+                                   TodoSelector.data.slice(0,10).map((data, index) => (
+                                          <p key={index}>{data.title}</p>
+                                   ))
+                              }
+                        </div>
+                        {/* <button onClick={() => TodoDispatch(showTodos())}>Add Todo</button> */}
+                  </div>
+            </>
+      );
 }
 
-export default App
+export default App;
